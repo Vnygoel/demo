@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   getSingleEmployeeDetails(id: number) {
-    debugger
+    // debugger
     this.rest.getDataFromServer().subscribe(    
       data => this.listOfUserDetails = data.hits[id] 
     //  data=> console.log(data[id])     
