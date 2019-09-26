@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   getData() {
-    debugger
+    // debugger
     this.rest.getDataFromServer().subscribe(
       // data=>this.dataValue=data
       data => {
