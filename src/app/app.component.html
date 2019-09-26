@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search by Title" [(ngModel)]="searchTerm">
+    </div>
+    <table>
+        <thead>
+            <th>Title</th>
+            <th>Author</th>
+            <th>URL</th>
+            <th>Created At</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of listOfUserdata | dataFilter:searchTerm; let i =index;" data-toggle="modal" data-target="#myModal" (click)="getSingleEmployeeDetails(i)">
+                <td>{{data.title}}</td>
+                <td>{{data.author}}</td>
+                <td>{{data.url}}</td>
+                <td>{{data.created_at}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>{{listOfUserDetails.title}}</p>
+                <p>{{listOfUserDetails.author}}</p>
+                <p> {{listOfUserDetails.url}}</p>
+                <p>{{listOfUserDetails.created_at}}</p>
+            </div>
+        </div>
+    </div>
+</div>
