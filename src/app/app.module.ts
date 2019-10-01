@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { DataFilterPipe } from './pipe/data-filter.pipe';
 
 import { FormsModule } from '@angular/forms';
+import { CommonModalComponent } from './common-modal/common-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DataFilterPipe
+    DataFilterPipe,
+    CommonModalComponent
   ],
   imports: [
     BrowserModule,

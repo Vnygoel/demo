@@ -9,9 +9,10 @@ import { Userdata } from './class/userdata';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  listOfUserdata: Userdata[];
-  searchTerm:string;
-  listOfUserDetails: Userdata[];
+  listOfUserdatas = [];
+  searchTerm: string;
+  
+  listOfUserDetail: Userdata[];
   title = 'demo';
   constructor(private rest: RestApiService) {
   }
@@ -22,24 +23,19 @@ export class AppComponent implements OnInit {
       , 3000);
   }
 
-  getData() {
-    // debugger
+  getData() {    
     this.rest.getDataFromServer().subscribe(
-      // data=>this.dataValue=data
-      data => {
-        this.listOfUserdata = data.hits;
-      },
-      error => {
+      data => {        
+        this.listOfUserdatas = data
       }
     )
   }
 
-  getSingleEmployeeDetails(id: number) {
-    // debugger
-    this.rest.getDataFromServer().subscribe(    
-      data => this.listOfUserDetails = data.hits[id] 
-    //  data=> console.log(data[id])     
+  getSingleEmployeeDetails(id) {    
+    this.rest.getDataFromServer().subscribe(
+      data => {        
+        this.listOfUserDetail = data[id];
+      }
     )
   }
-
 }
