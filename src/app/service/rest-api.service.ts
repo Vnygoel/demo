@@ -16,7 +16,7 @@ export class RestApiService {
    return this.http.get<any>(AppConst.apiURL)
       .pipe(
         map((data)=>{          
-          data.hits;
+          data.hits; //is this statement required?
           return data.hits;            
         }),
         catchError(this.handleError)
@@ -25,11 +25,11 @@ export class RestApiService {
 
   private handleError(errorResponce:HttpErrorResponse){
     if(errorResponce.error instanceof ErrorEvent){
-      console.error("Clint side error: ",errorResponce.error)
+      console.error("Clint side error: ",errorResponce.error) // client & ;
     } else {
       console.error("Server Side error: ", errorResponce.error);
     }
 
-    return throwError("This is problem with service. we are notified this service and working on it.")
+    return throwError("This is problem with service. we are notified this service and working on it.") //Change the comment
   }
 }
